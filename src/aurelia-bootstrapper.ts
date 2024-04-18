@@ -10,7 +10,7 @@ let startResolve: (value: AureliaFactoryFn | Promise<AureliaFactoryFn>) => void;
 
 const startPromise = new Promise<AureliaFactoryFn>(resolve => startResolve = resolve);
 const host = PLATFORM.global;
-const isNodeLike = typeof process !== 'undefined' && !(process as RuntimeProcess).browser;
+const isNodeLike = typeof process !== 'undefined' && !(process as RuntimeProcess).browser && (process as RuntimeProcess).version;
 
 function ready() {
   if (!host.document || host.document.readyState === 'complete') {

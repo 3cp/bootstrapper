@@ -5,7 +5,7 @@ let bootstrapPromises = [];
 let startResolve;
 const startPromise = new Promise(resolve => startResolve = resolve);
 const host = PLATFORM.global;
-const isNodeLike = typeof process !== 'undefined' && !process.browser;
+const isNodeLike = typeof process !== 'undefined' && !process.browser && process.version;
 function ready() {
     if (!host.document || host.document.readyState === 'complete') {
         return Promise.resolve();

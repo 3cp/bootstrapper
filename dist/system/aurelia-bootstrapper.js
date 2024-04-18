@@ -14,7 +14,7 @@ System.register(['aurelia-polyfills', 'aurelia-pal'], (function (exports) {
             var startResolve;
             var startPromise = new Promise(function (resolve) { return startResolve = resolve; });
             var host = PLATFORM.global;
-            var isNodeLike = typeof process !== 'undefined' && !process.browser;
+            var isNodeLike = typeof process !== 'undefined' && !process.browser && process.version;
             function ready() {
                 if (!host.document || host.document.readyState === 'complete') {
                     return Promise.resolve();

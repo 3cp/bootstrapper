@@ -4,7 +4,7 @@ define('aurelia-bootstrapper', ['exports', 'aurelia-polyfills', 'aurelia-pal'], 
     var startResolve;
     var startPromise = new Promise(function (resolve) { return startResolve = resolve; });
     var host = aureliaPal.PLATFORM.global;
-    var isNodeLike = typeof process !== 'undefined' && !process.browser;
+    var isNodeLike = typeof process !== 'undefined' && !process.browser && process.version;
     function ready() {
         if (!host.document || host.document.readyState === 'complete') {
             return Promise.resolve();
